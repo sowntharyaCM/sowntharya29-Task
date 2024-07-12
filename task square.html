@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><script>
+    function printSquarePattern(size) {
+        let result = '';
+        for (let i = 1; i <= size; i++) {
+            for (let j = 1; j <= size; j++) {
+                result += '#';
+            }
+            result += '<br>';
+        }
+        document.write(result);
+    }
+    printSquarePattern(10); 
+
+
+
+
+    function fibonacciSeries(n) {
+    let fib = [0, 1]; 
+    for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+    for (let i = 0; i < n; i++) {
+        document.write(fib[i] + ' ');
+    }
+}
+const n = 10;
+fibonacciSeries(n);
+</script>
+</body>
+</html>

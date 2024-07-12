@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function rightAngledTriangle(rows) {
+        let result = '';
+        for (let i = 1; i <= rows; i++) {
+            for (let j = 1; j <= i; j++) {
+                result += '$';
+            }
+            result += '<br>';
+        }
+        document.write(result);
+    }
+    rightAngledTriangle(10);
+
+
+
+    function leftAngledTriangle(rows) {
+    let result = '';
+    for (let i = 1; i <= rows; i++) {
+        for (let j = rows; j > i; j--) {
+            result += '&nbsp;'; 
+        }
+        for (let k = 1; k <= i; k++) {
+            result += '* ';
+        }
+    result += '<br>';
+    }
+   document.write(result);
+}
+    leftAngledTriangle(15); 
+
+</script>
+    
+</body>
+</html>

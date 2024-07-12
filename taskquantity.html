@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Item 1</td>
+            <td>
+                <button onclick="decrement('qty1')">-</button>
+                <span id="qty1">0</span>
+                <button onclick="increment('qty1')">+</button>
+            </td>
+            <td><input type="number" id="rate1" oninput="calculateAmount('qty1', 'rate1', 'amount1')" value="0"></td>
+            <td><span id="amount1">0</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function increment(id) {
+        const qtyElement = document.getElementById(id);
+        qtyElement.innerText = parseInt(qtyElement.innerText) + 1;
+        updateAmount(id);
+    }
+
+    function decrement(id) {
+        const qtyElement = document.getElementById(id);
+        if (parseInt(qtyElement.innerText) > 0) {
+            qtyElement.innerText = parseInt(qtyElement.innerText) - 1;
+            updateAmount(id);
+        }
+    }
+
+    function calculateAmount(qtyId, rateId, amountId) {
+        const qty = parseInt(document.getElementById(qtyId).innerText);
+        const rate = parseFloat(document.getElementById(rateId).value);
+        const amount = qty * rate;
+        document.getElementById(amountId).innerText = amount.toFixed(2);
+    }
+
+    function updateAmount(qtyId) {
+        const rateId = 'rate' + qtyId.replace('qty', '');
+        const amountId = 'amount' + qtyId.replace('qty', '');
+        calculateAmount(qtyId, rateId, amountId);
+    }
+</script>
+
+</body>
+</html>
