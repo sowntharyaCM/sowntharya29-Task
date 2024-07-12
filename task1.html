@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Font Family</title>
+</head>
+<body>
+    <h1 id="text">Itz me Sowntharya</h1>
+    <label for="fontSelector">Choose a font family:</label>
+    <select id="fontSelector">
+        <option value="Arial">Arial</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+    </select>
+
+    <script>
+        document.getElementById("fontSelector").addEventListener("change", function() {
+            var selectedFont = this.value;
+            document.getElementById("text").style.fontFamily = selectedFont;
+        });
+    </script>
+</body>
+</html>
+
